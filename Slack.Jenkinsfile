@@ -11,4 +11,12 @@ pipeline {
             }
         }
     }
+// on failure
+    post {
+        failure {
+            script{
+            slack2.notify(channel="ocp-alerts", message="*Hallo Welt <${BUILD_URL}|Click here>*")
+            }
+            }
+    }
 }
